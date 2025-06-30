@@ -4,8 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/bookShelves/', // GitHub Pages repository name
   server: {
     host: '0.0.0.0', // Allow access from other devices on network
     port: 5173,
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
   },
 })
