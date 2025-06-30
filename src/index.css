@@ -1,0 +1,554 @@
+/* Reset and base styles */
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f1eb 0%, #e8dcc0 100%);
+  min-height: 100vh;
+  margin: 0;
+  color: #2d2d2d;
+  position: relative;
+}
+
+/* Add wood grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.03) 2px,
+      rgba(139, 69, 19, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+h1, h2, h3 {
+  font-family: 'Georgia', serif;
+  margin: 0 0 0.5em 0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #8b4513;
+  background: linear-gradient(to right, #d2b48c, #deb887);
+  border-radius: 8px 8px 0 0;
+  padding: 1.5rem 2rem;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.header h1 {
+  color: #5d4037;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Search Bar Styling */
+.searchbar-container {
+  margin: 1.5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.searchbar-form {
+  display: flex;
+  gap: 0.5rem;
+  background: linear-gradient(to right, #f5e9d3, #e8dcc0);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.1),
+    0 2px 8px rgba(0,0,0,0.1);
+  border: 2px solid #8b4513;
+}
+
+.searchbar-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #cd853f;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: #2d2d2d;
+  box-shadow: 
+    inset 0 1px 3px rgba(0,0,0,0.1),
+    0 1px 0 rgba(255,255,255,0.8);
+  transition: all 0.2s ease;
+}
+
+.searchbar-input:focus {
+  outline: none;
+  border-color: #8b4513;
+  box-shadow: 
+    inset 0 1px 3px rgba(0,0,0,0.1),
+    0 0 0 3px rgba(139, 69, 19, 0.2);
+}
+
+.searchbar-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to bottom, #d2b48c, #cd853f);
+  border: 2px solid #8b4513;
+  border-radius: 6px;
+  color: #3e2723;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.searchbar-button:hover {
+  background: linear-gradient(to bottom, #deb887, #d2b48c);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.bookshelf {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(to bottom, #8b4513, #a0522d);
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    inset 0 -2px 4px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Add wood grain to bookshelf */
+.bookshelf::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(101, 67, 33, 0.1) 3px,
+      rgba(101, 67, 33, 0.1) 6px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 8px,
+      rgba(101, 67, 33, 0.05) 8px,
+      rgba(101, 67, 33, 0.05) 12px
+    );
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.shelf {
+  background: linear-gradient(to bottom, #deb887 0%, #d2b48c 50%, #cd853f 100%);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.2),
+    inset 0 2px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+  padding: 1.5rem;
+  min-width: 220px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Add wood texture to individual shelves */
+.shelf::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(139, 69, 19, 0.05) 1px,
+      rgba(139, 69, 19, 0.05) 2px
+    );
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.shelf-label {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #3e2723;
+  margin-bottom: 1rem;
+  text-shadow: 
+    0 1px 0 rgba(255,255,255,0.5),
+    0 2px 4px rgba(0,0,0,0.2);
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+}
+.shelf-books {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-height: 12rem;
+  padding: 1rem;
+  background: linear-gradient(to bottom, rgba(139, 69, 19, 0.1), rgba(160, 82, 45, 0.2));
+  border-radius: 6px;
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.1),
+    inset 0 -2px 4px rgba(255,255,255,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.shelf-empty {
+  color: #8d6e63;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 1.1rem;
+}
+
+.shelf-edge {
+  height: 16px;
+  background: linear-gradient(to bottom, #a0522d, #8b4513, #654321);
+  border-radius: 0 0 8px 8px;
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.book-spine {
+  display: inline-block;
+  height: 12rem;
+  width: 2rem;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.3),
+    2px 0 4px rgba(0,0,0,0.2),
+    inset -2px 0 4px rgba(0,0,0,0.1);
+  margin: 0 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-spine:hover {
+  transform: translateY(-12px) rotateY(-5deg);
+  box-shadow: 
+    0 12px 24px rgba(0,0,0,0.4),
+    4px 0 8px rgba(0,0,0,0.3),
+    inset -2px 0 4px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.book-spine-gradient {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem 0.25rem;
+  border-radius: 3px 0 0 3px;
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  border-right: 2px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle paper texture to book spines */
+.book-spine-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.03) 1px,
+      rgba(255, 255, 255, 0.03) 2px
+    );
+  pointer-events: none;
+}
+
+.book-spine-icon {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+.book-spine-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.98);
+  text-align: center;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 
+    0 1px 2px rgba(0,0,0,0.4),
+    0 0 4px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(43, 25, 12, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: linear-gradient(to bottom, #f5e9d3, #e8dcc0);
+  border-radius: 12px;
+  box-shadow: 
+    0 12px 40px rgba(0,0,0,0.4),
+    inset 0 2px 0 rgba(255,255,255,0.5),
+    inset 0 -2px 0 rgba(139, 69, 19, 0.2);
+  padding: 2.5rem 2rem;
+  min-width: 400px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 3px solid #8b4513;
+}
+
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 69, 19, 0.03) 2px,
+      rgba(139, 69, 19, 0.03) 4px
+    );
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(to bottom, #cd853f, #8b4513);
+  border: 2px solid #654321;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.modal-close:hover {
+  background: linear-gradient(to bottom, #deb887, #cd853f);
+  transform: scale(1.1);
+}
+
+/* Genre-based styling for modal */
+.modal-info > div {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3e2723;
+  font-weight: 500;
+}
+
+.modal-info svg {
+  color: #8b4513;
+  flex-shrink: 0;
+}
+
+/* Button styles */
+.button {
+  background: linear-gradient(to bottom, #deb887, #cd853f);
+  color: #3e2723;
+  border: 2px solid #8b4513;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 
+    0 3px 6px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.2);
+  transition: all 0.2s ease;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  position: relative;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(139, 69, 19, 0.05) 1px,
+      rgba(139, 69, 19, 0.05) 2px
+    );
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #f4e4bc, #deb887);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 5px 12px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 1px 3px rgba(139, 69, 19, 0.2);
+}
+
+.button-secondary {
+  background: linear-gradient(to bottom, #f5e9d3, #e8dcc0);
+  color: #5d4037;
+  border: 2px solid #cd853f;
+}
+
+.button-secondary:hover {
+  background: linear-gradient(to bottom, #fff, #f5e9d3);
+}
+
+/* Genre Legend Styling */
+.genre-legend {
+  background: linear-gradient(to bottom, #f5e9d3, #e8dcc0);
+  border: 2px solid #8b4513;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.genre-legend h3 {
+  margin: 0 0 1rem 0;
+  color: #3e2723;
+  font-size: 1.1rem;
+  text-align: center;
+  font-family: 'Georgia', serif;
+}
+
+.genre-legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.genre-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #3e2723;
+  font-weight: 500;
+}
+
+.genre-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* Responsive layout */
+@media (max-width: 800px) {
+  .container {
+    padding: 1rem;
+  }
+  .bookshelf {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .shelf {
+    min-width: 0;
+    padding: 1rem 0.5rem 2rem 0.5rem;
+  }
+}
